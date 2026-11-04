@@ -45,7 +45,7 @@
               "hasOpenThreats": false,
               "crossingFlows": [
                 "333124d5-107e-47cd-b5dc-16fbc3ae5fea",
-                "7b1ef7cc-1073-44e0-a2f9-9ce053547757"
+                "62fe57f3-360b-46b9-b0de-9b2a5910571b"
               ],
               "containedElements": [
                 "285bb020-f31b-4d50-af96-dde3d3118f4a",
@@ -79,10 +79,10 @@
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [
-                "bf38b056-24cf-4235-9d6a-d24c191e34ba",
                 "23114d22-0a1c-4996-8c24-4490eeca1686",
                 "f77be2a5-0c80-4a4a-aa68-47b46d488608",
-                "7b1ef7cc-1073-44e0-a2f9-9ce053547757"
+                "62fe57f3-360b-46b9-b0de-9b2a5910571b",
+                "9bbc7ce1-3cd5-4244-9fb7-d26da69f41d9"
               ],
               "containedElements": [
                 "fa2aa412-2ee9-4934-8858-b3d62f364280",
@@ -117,7 +117,7 @@
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [
-                "bf38b056-24cf-4235-9d6a-d24c191e34ba"
+                "9bbc7ce1-3cd5-4244-9fb7-d26da69f41d9"
               ],
               "containedElements": [
                 "d125c2af-b110-43be-85e1-9327907f35cd",
@@ -1120,56 +1120,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Bearer Token",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "e95a9b40-5a46-42a0-afcc-c1f7f9574383",
-                "5bfd3be4-d4fb-47c4-a617-ee80e2efa3ec"
-              ]
-            },
-            "labels": [
-              "Bearer Token"
-            ],
-            "id": "bf38b056-24cf-4235-9d6a-d24c191e34ba",
-            "source": {
-              "cell": "fa2aa412-2ee9-4934-8858-b3d62f364280",
-              "port": "6c145637-41f9-40c5-98ca-2aeed8e4289e"
-            },
-            "target": {
-              "cell": "36763dae-7f43-4ae2-b6ab-8c223214967c",
-              "port": "21305515-addd-44d9-b24b-520ac147a1f7"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Internal REST API to Audit Log",
               "description": "",
               "outOfScope": false,
@@ -1383,7 +1333,7 @@
             "labels": [
               "access token"
             ],
-            "id": "7b1ef7cc-1073-44e0-a2f9-9ce053547757",
+            "id": "62fe57f3-360b-46b9-b0de-9b2a5910571b",
             "source": {
               "cell": "285bb020-f31b-4d50-af96-dde3d3118f4a",
               "port": "28cf39fd-5687-420a-8636-252abd3d8bc7"
@@ -1393,6 +1343,115 @@
               "port": "21305515-addd-44d9-b24b-520ac147a1f7"
             },
             "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Bearer token",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "5860b6f4-09af-4e4e-b916-e337aeda1c51",
+                  "title": "Tampering with token",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Token or request modified in transit",
+                  "mitigation": "TLS, signed messages",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "940e3edb-9d40-44e1-b58d-ad31c532a94e",
+                  "title": "Spoofing agent Identity",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Forged agent identity calls the api",
+                  "mitigation": "Validate JWT signature, iss, aud; Ed25519message signing",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                },
+                {
+                  "id": "86d9b8e6-628f-4162-a68d-ea635ceab7dc",
+                  "title": "Information disclosure",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "JWT leaked in model output",
+                  "mitigation": "output guardrail with JWT regex redaction",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "e95a9b40-5a46-42a0-afcc-c1f7f9574383",
+                "5bfd3be4-d4fb-47c4-a617-ee80e2efa3ec"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Bearer token"
+            ],
+            "id": "9bbc7ce1-3cd5-4244-9fb7-d26da69f41d9",
+            "source": {
+              "cell": "fa2aa412-2ee9-4934-8858-b3d62f364280",
+              "port": "6c145637-41f9-40c5-98ca-2aeed8e4289e"
+            },
+            "target": {
+              "cell": "36763dae-7f43-4ae2-b6ab-8c223214967c",
+              "port": "21305515-addd-44d9-b24b-520ac147a1f7"
+            },
+            "vertices": [
+              {
+                "x": 520,
+                "y": 0
+              },
+              {
+                "x": 580,
+                "y": 80
+              },
+              {
+                "x": 620,
+                "y": 120
+              }
+            ]
           },
           {
             "position": {
@@ -1880,6 +1939,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 4
   }
 }

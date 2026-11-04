@@ -35,8 +35,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "204b8d7b-3158-4566-9977-ecc7dedc8a9c",
             "zIndex": -1,
+            "id": "204b8d7b-3158-4566-9977-ecc7dedc8a9c",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Boundary 1: User layer",
@@ -70,8 +70,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "e95a9b40-5a46-42a0-afcc-c1f7f9574383",
             "zIndex": -1,
+            "id": "e95a9b40-5a46-42a0-afcc-c1f7f9574383",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Boundary 2: Agent Layer",
@@ -108,8 +108,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "5bfd3be4-d4fb-47c4-a617-ee80e2efa3ec",
             "zIndex": -1,
+            "id": "5bfd3be4-d4fb-47c4-a617-ee80e2efa3ec",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Boundary 3: Internal API Layer",
@@ -146,6 +146,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -229,7 +230,6 @@
               ]
             },
             "id": "285bb020-f31b-4d50-af96-dde3d3118f4a",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Customer",
@@ -263,6 +263,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -346,7 +347,6 @@
               ]
             },
             "id": "04f094a2-49ae-4041-8b48-9c37164bf653",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "Support Admin",
@@ -380,6 +380,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -463,7 +464,6 @@
               ]
             },
             "id": "fa2aa412-2ee9-4934-8858-b3d62f364280",
-            "zIndex": 5,
             "data": {
               "type": "tm.Process",
               "name": "LLM Agent",
@@ -500,6 +500,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -583,7 +584,6 @@
               ]
             },
             "id": "b9835857-6fec-4775-9584-836fda69d7c7",
-            "zIndex": 6,
             "data": {
               "type": "tm.Process",
               "name": "MCP Server",
@@ -623,6 +623,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 7,
             "ports": {
               "groups": {
                 "top": {
@@ -706,7 +707,6 @@
               ]
             },
             "id": "2d0251cc-c374-4bbd-bfb1-cdd1c0fecfc6",
-            "zIndex": 7,
             "data": {
               "type": "tm.Actor",
               "name": "LLM Provider",
@@ -740,6 +740,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 9,
             "ports": {
               "groups": {
                 "top": {
@@ -823,7 +824,6 @@
               ]
             },
             "id": "650a1d47-ed36-459f-bec7-fdc96ce30dea",
-            "zIndex": 9,
             "data": {
               "type": "tm.Actor",
               "name": "Auth0",
@@ -860,6 +860,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 10,
             "ports": {
               "groups": {
                 "top": {
@@ -943,7 +944,6 @@
               ]
             },
             "id": "b5ef01d2-7524-4284-b119-5b4064fd37b3",
-            "zIndex": 10,
             "data": {
               "type": "tm.Store",
               "name": "RAG Knowledge Base(Vector DB)",
@@ -1380,7 +1380,7 @@
                   "id": "5860b6f4-09af-4e4e-b916-e337aeda1c51",
                   "title": "Tampering with token",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Tampering",
                   "description": "Token or request modified in transit",
                   "mitigation": "TLS, signed messages",
@@ -1391,12 +1391,12 @@
                 },
                 {
                   "id": "940e3edb-9d40-44e1-b58d-ad31c532a94e",
-                  "title": "Spoofing agent Identity",
+                  "title": "Leakage of bearer tokean",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Critical",
                   "type": "Information disclosure",
-                  "description": "Forged agent identity calls the api",
-                  "mitigation": "Validate JWT signature, iss, aud; Ed25519message signing",
+                  "description": "A malicious actor sniffs the network traffic and reads the token, resulting in credential theft",
+                  "mitigation": "Enforce stronger encryption (HTTPS)",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 3,
@@ -1404,12 +1404,12 @@
                 },
                 {
                   "id": "86d9b8e6-628f-4162-a68d-ea635ceab7dc",
-                  "title": "Information disclosure",
+                  "title": "Denial Of Service",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Information disclosure",
-                  "description": "JWT leaked in model output",
-                  "mitigation": "output guardrail with JWT regex redaction",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Attacker floods data flow with thousands of expired, malformed or fake bearer tokens",
+                  "mitigation": "Implement strict API rate limiting at the entrance of boundary 3",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 4,
@@ -1421,9 +1421,9 @@
                 "5bfd3be4-d4fb-47c4-a617-ee80e2efa3ec"
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 2,
-                "denialOfService": 0
+                "tampering": 2,
+                "informationDisclosure": 3,
+                "denialOfService": 1
               }
             },
             "labels": [
@@ -1477,6 +1477,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -1560,7 +1561,6 @@
               ]
             },
             "id": "d125c2af-b110-43be-85e1-9327907f35cd",
-            "zIndex": 11,
             "data": {
               "type": "tm.Store",
               "name": "Audit Log",
@@ -1598,6 +1598,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -1681,7 +1682,6 @@
               ]
             },
             "id": "13c75a14-0591-4751-86e4-a02693c21ece",
-            "zIndex": 12,
             "data": {
               "type": "tm.Actor",
               "name": "Browser",
@@ -1715,6 +1715,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 13,
             "ports": {
               "groups": {
                 "top": {
@@ -1798,7 +1799,6 @@
               ]
             },
             "id": "36763dae-7f43-4ae2-b6ab-8c223214967c",
-            "zIndex": 13,
             "data": {
               "type": "tm.Process",
               "name": "Internal Rest API",
@@ -1835,6 +1835,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 16,
             "ports": {
               "groups": {
                 "top": {
@@ -1918,7 +1919,6 @@
               ]
             },
             "id": "9fa5a6c4-a991-49fc-95e8-7b2ef61e1135",
-            "zIndex": 16,
             "data": {
               "type": "tm.Process",
               "name": "AI Web App",

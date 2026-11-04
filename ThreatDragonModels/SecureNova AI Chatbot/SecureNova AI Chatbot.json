@@ -14,9 +14,9 @@
       {
         "id": 0,
         "title": "Data Flow Diagram",
-        "diagramType": "STRIDE",
-        "placeholder": "New STRIDE diagram description",
-        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "diagramType": "Generic",
+        "placeholder": "New generic diagram description",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
         "version": "2.6.2",
         "cells": [
           {

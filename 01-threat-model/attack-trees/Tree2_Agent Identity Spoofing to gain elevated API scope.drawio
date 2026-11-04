@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="ri7pM1JizmYxTsc1_dRY">
+    <mxGraphModel dx="1030" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;GOAL :Call admin API&lt;/b&gt;&lt;div&gt;&lt;b&gt;ROOT RISK : 20&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="165" x="320" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Forge Orchestrator&lt;/b&gt;&lt;div&gt;&lt;b&gt;(AND : all 2)&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(attacker is spoofing the orchestrator to deceive receiving agent)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="130" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Replay Stolen Token&lt;/b&gt;&lt;div&gt;&lt;b&gt;(AND : all 2)&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="342.5" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Prompt Role Elevation&lt;/b&gt;&lt;div&gt;&lt;b&gt;Single Step&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="500" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;No Message signing&lt;/b&gt;&lt;div&gt;(No cryptographic proof that message actually came from the orchestrator)&lt;/div&gt;&lt;div&gt;L4 x I4 = 16&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="165" x="137.5" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Receiving Agent trusts peers&lt;/b&gt;&lt;div&gt;(Receiving agents designed to blindly trust any message claiming to be from the orchestrator)&lt;/div&gt;&lt;div&gt;L4x I5 = 20&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="165" x="137.5" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Long lived token&lt;/b&gt;&lt;div&gt;(Token stay valid for a long time)&lt;/div&gt;&lt;div&gt;L3 x I4 = 12&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="130" x="337.5" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Token leaked or sniffed&lt;/b&gt;&lt;div&gt;(attacker gets hold of real token by intercepting the network traffic)&lt;/div&gt;&lt;div&gt;L3 x I4 = 12&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="165" x="320" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Admin-role prompt trick&lt;/b&gt;&lt;div&gt;(Attacker directly talks to AI into believing they have admin rights)&lt;/div&gt;&lt;div&gt;L3 x I4 = 12&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="130" x="495" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-14" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="220" y="120" as="sourcePoint" />
+            <mxPoint x="560" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-15" edge="1" parent="1" source="blbmRnUJsxgQFexvYGYQ-2" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="270" as="sourcePoint" />
+            <mxPoint x="220" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-17" edge="1" parent="1" source="blbmRnUJsxgQFexvYGYQ-5" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="blbmRnUJsxgQFexvYGYQ-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="270" as="sourcePoint" />
+            <mxPoint x="450" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-18" edge="1" parent="1" source="blbmRnUJsxgQFexvYGYQ-7" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="blbmRnUJsxgQFexvYGYQ-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="270" as="sourcePoint" />
+            <mxPoint x="450" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-19" edge="1" parent="1" source="blbmRnUJsxgQFexvYGYQ-9" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="blbmRnUJsxgQFexvYGYQ-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="270" as="sourcePoint" />
+            <mxPoint x="450" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-20" edge="1" parent="1" source="blbmRnUJsxgQFexvYGYQ-5" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="blbmRnUJsxgQFexvYGYQ-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="270" as="sourcePoint" />
+            <mxPoint x="450" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-21" edge="1" parent="1" source="blbmRnUJsxgQFexvYGYQ-7" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="blbmRnUJsxgQFexvYGYQ-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="270" as="sourcePoint" />
+            <mxPoint x="450" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-23" edge="1" parent="1" source="blbmRnUJsxgQFexvYGYQ-4" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="450" y="360" as="sourcePoint" />
+            <mxPoint x="560" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="blbmRnUJsxgQFexvYGYQ-24" edge="1" parent="1" source="blbmRnUJsxgQFexvYGYQ-1" style="endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="blbmRnUJsxgQFexvYGYQ-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="450" y="300" as="sourcePoint" />
+            <mxPoint x="500" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

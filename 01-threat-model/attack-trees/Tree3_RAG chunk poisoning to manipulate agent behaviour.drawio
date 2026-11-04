@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="jLf0Awr2nIdj-R8-QSkU">
+    <mxGraphModel dx="1030" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RRk26FoSYtyyhybvWdbO-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;GOAL: Control Agent&lt;/b&gt;&lt;div&gt;&lt;b&gt;Root risk:16&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="320" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Poison RAG Store&lt;/b&gt;&lt;div&gt;&lt;b&gt;AND : all 3 needed&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="120" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Trigger MCP tool&lt;/b&gt;&lt;div&gt;&lt;b&gt;Single step&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="320" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Hijack Ingestion&lt;/b&gt;&lt;div&gt;&lt;b&gt;Single step&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;No Ingestion checks&lt;/b&gt;&lt;div&gt;&lt;b&gt;L4 x I4 = 16&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(When new docs get added to knowledge base, validation scan for malicious content is not done)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="180" x="90" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Chunk Retrieved&lt;/b&gt;&lt;div&gt;&lt;b&gt;L4 x I3 = 12&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(Later when user asks a related question, the system has to pull that specific poisoned chunk)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="90" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Chunk Obeyed&lt;/b&gt;&lt;div&gt;&lt;b&gt;L4 x I4 = 16&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(AI treats the text as instruction to followed rather than data to just read and summarize)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="180" x="90" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Tool lacks approval&lt;/b&gt;&lt;div&gt;&lt;b&gt;L3 x I4 =12&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(Poisoned chunk calls one of the tools - and the tool lacks approval step)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="120" x="320" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Weak service account&lt;/b&gt;&lt;div&gt;&lt;b&gt;L2 x I4 = 8&lt;/b&gt;&lt;/div&gt;&lt;div&gt;(If the service account is weak, the attackers can skip all the sneaking and just write poisoned data in directly&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="180" x="490" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-10" edge="1" parent="1" source="RRk26FoSYtyyhybvWdbO-3" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="RRk26FoSYtyyhybvWdbO-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint" />
+            <mxPoint x="450" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-11" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="180" y="160" as="sourcePoint" />
+            <mxPoint x="580" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-19" connectable="0" parent="RRk26FoSYtyyhybvWdbO-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;defaultLabelBackgroundColor=page;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;OR&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-12" edge="1" parent="1" source="RRk26FoSYtyyhybvWdbO-2" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint" />
+            <mxPoint x="180" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-13" edge="1" parent="1" source="RRk26FoSYtyyhybvWdbO-4" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint" />
+            <mxPoint x="580" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-14" edge="1" parent="1" source="RRk26FoSYtyyhybvWdbO-5" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="RRk26FoSYtyyhybvWdbO-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint" />
+            <mxPoint x="450" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-15" edge="1" parent="1" source="RRk26FoSYtyyhybvWdbO-5" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="RRk26FoSYtyyhybvWdbO-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint" />
+            <mxPoint x="450" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-16" edge="1" parent="1" source="RRk26FoSYtyyhybvWdbO-7" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="RRk26FoSYtyyhybvWdbO-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint" />
+            <mxPoint x="450" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-17" edge="1" parent="1" source="RRk26FoSYtyyhybvWdbO-8" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="RRk26FoSYtyyhybvWdbO-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint" />
+            <mxPoint x="450" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RRk26FoSYtyyhybvWdbO-18" edge="1" parent="1" source="RRk26FoSYtyyhybvWdbO-9" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="RRk26FoSYtyyhybvWdbO-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="330" as="sourcePoint" />
+            <mxPoint x="450" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

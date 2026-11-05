@@ -1,0 +1,4 @@
+[08:34:27] Token issued, expires_in=60s
+[08:34:28] POST /chat -> 200 {'caller': 'j9rEITCGkh3V9fxGOQCd1ayD4nzK9fGI@clients', 'reply': 'ok'}
+[08:34:28] Waiting 65s for token to expire...
+[08:35:33] REPLAY /chat -> 400 {'error': 'token expired'}

@@ -1,0 +1,249 @@
+{
+  "provenance": "Synthetic timing, scope and token metadata.",
+  "events": [
+    {
+      "timestamp": 1794291333.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291334.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291335.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291336.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291337.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291338.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291339.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291340.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291341.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291342.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291343.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291344.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291345.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291346.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291347.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291348.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291349.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291350.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291351.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291352.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291353.3171587,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794291633.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291354.3171587,
+      "identity": "replay-agent",
+      "scope": "write:admin",
+      "token_id": "synthetic-expired-token",
+      "expires_at": 1794291353.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794291355.3171587,
+      "identity": "replay-agent",
+      "scope": "write:admin",
+      "token_id": "synthetic-expired-token",
+      "expires_at": 1794291353.3171587,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    }
+  ],
+  "alerts": [
+    {
+      "timestamp": "2026-11-10T06:15:53.317159+00:00",
+      "identity": "replay-agent",
+      "event_type": "volume_spike",
+      "case_id": "indirect-1",
+      "detail": "21 LLM calls in the rolling 60s window"
+    },
+    {
+      "timestamp": "2026-11-10T06:15:54.317159+00:00",
+      "identity": "replay-agent",
+      "event_type": "volume_spike",
+      "case_id": "indirect-1",
+      "detail": "22 LLM calls in the rolling 60s window"
+    },
+    {
+      "timestamp": "2026-11-10T06:15:54.317159+00:00",
+      "identity": "replay-agent",
+      "event_type": "scope_change",
+      "case_id": "indirect-1",
+      "detail": "read:demo -> write:admin"
+    },
+    {
+      "timestamp": "2026-11-10T06:15:55.317159+00:00",
+      "identity": "replay-agent",
+      "event_type": "volume_spike",
+      "case_id": "indirect-1",
+      "detail": "23 LLM calls in the rolling 60s window"
+    },
+    {
+      "timestamp": "2026-11-10T06:15:55.317159+00:00",
+      "identity": "replay-agent",
+      "event_type": "token_reuse_after_expiry",
+      "case_id": "indirect-1",
+      "detail": "same expired token used again"
+    }
+  ]
+}

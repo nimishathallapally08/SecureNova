@@ -1,0 +1,14 @@
+define bot input blocked
+  "Input blocked by SecureNova guardrails."
+
+define flow check attack input
+  $input_check = execute check_attack_input(text=$user_message)
+  $input_allowed = $input_check[0]
+  $input_reason = $input_check[1]
+  if not $input_allowed
+    bot input blocked
+    stop
+
+define flow redact jwt output
+  $jwt_count = execute count_output_jwts(text=$bot_message)
+  $bot_message = execute redact_output_jwts(text=$bot_message)

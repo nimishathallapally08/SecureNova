@@ -1,0 +1,9 @@
+{
+  "library": "cryptography",
+  "algorithm": "Ed25519",
+  "private_key_file": "/workspaces/SecureNova/04-blue-team/results/evidence/20261110T061508718066Z/agent_private.pem",
+  "public_key_file": "/workspaces/SecureNova/04-blue-team/results/evidence/20261110T061508718066Z/agent_public.pem",
+  "original_verified": true,
+  "tampered_message_rejected": true,
+  "error": "signature invalid: message was tampered"
+}

@@ -1,0 +1,212 @@
+{
+  "provenance": "Actual run case IDs replayed with synthetic timing, scope and token metadata.",
+  "events": [
+    {
+      "timestamp": 1794297854.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297855.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "indirect-2",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297856.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "indirect-3",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297857.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "spoof-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297858.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-repeat_back",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297859.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-roleplay_override",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297860.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-translation_trick",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297861.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-ignore_prior",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297862.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-suffix_injection",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297863.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "role-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297864.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "rag-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297865.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "rag-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297866.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "indirect-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297867.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "indirect-2",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297868.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "indirect-3",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297869.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "spoof-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297870.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-repeat_back",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297871.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-roleplay_override",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297872.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-translation_trick",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297873.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-ignore_prior",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297874.4878924,
+      "identity": "replay-agent",
+      "scope": "read:demo",
+      "token_id": "synthetic-token",
+      "expires_at": 1794298154.4878924,
+      "case_id": "extract-suffix_injection",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297875.4878924,
+      "identity": "replay-agent",
+      "scope": "write:admin",
+      "token_id": "synthetic-expired-token",
+      "expires_at": 1794297874.4878924,
+      "case_id": "role-1",
+      "event_type": "llm_call"
+    },
+    {
+      "timestamp": 1794297876.4878924,
+      "identity": "replay-agent",
+      "scope": "write:admin",
+      "token_id": "synthetic-expired-token",
+      "expires_at": 1794297874.4878924,
+      "case_id": "rag-1",
+      "event_type": "llm_call"
+    }
+  ]
+}

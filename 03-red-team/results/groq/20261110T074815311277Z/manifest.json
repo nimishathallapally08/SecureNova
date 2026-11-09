@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "backend": "groq",
+  "simulation": false,
+  "attack": "attack3",
+  "cases": 6,
+  "role_elevation_setup": "intentionally_vulnerable_textual_claim_demo",
+  "inference_calls": 7
+}

@@ -5,6 +5,7 @@ import secrets
 import urllib.parse
 import webbrowser
 from threading import Timer
+from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
@@ -16,6 +17,7 @@ AUD = os.environ["API_AUDIENCE"]
 PORT = int(os.getenv("PORT", "3000"))
 APP_NAME = os.getenv("APP_NAME", "SecureNova")
 CB = os.getenv("CALLBACK_URL", f"https://ubiquitous-spork-w99jrv4xq45f9j4q-{PORT}.app.github.dev/")
+CAPTURE_REFRESH_TOKEN = os.getenv("CAPTURE_REFRESH_TOKEN", "").lower() in {"1", "true", "yes"}
 
 app = Flask(__name__)
 app.secret_key = secrets.token_bytes(32)
@@ -26,6 +28,19 @@ app.config.update(
    SESSION_COOKIE_SAMESITE="Lax",
 )
 tokens = {}
+
+
+def store_refresh_token(token: str) -> Path:
+   path = Path(os.getenv(
+      "REFRESH_TOKEN_FILE", Path(__file__).resolve().parents[1] / ".refresh_token"
+   )).expanduser()
+   path.parent.mkdir(parents=True, exist_ok=True)
+   flags = os.O_WRONLY | os.O_CREAT | os.O_TRUNC | getattr(os, "O_NOFOLLOW", 0)
+   descriptor = os.open(path, flags, 0o600)
+   with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
+      os.fchmod(stream.fileno(), 0o600)
+      stream.write(token + "\n")
+   return path
 
 HOME = """<!doctype html>
 <html lang="en">
@@ -118,9 +133,12 @@ def login():
    ).rstrip(b"=").decode()
    session["verifier"] = verifier
    session["state"] = secrets.token_urlsafe(32)
+   scopes = "openid profile read:ai-data write:admin"
+   if CAPTURE_REFRESH_TOKEN:
+      scopes += " offline_access"
    return redirect(f"https://{D}/authorize?" + urllib.parse.urlencode({
       "response_type": "code", "client_id": CID, "redirect_uri": CB,
-      "scope": "openid profile read:ai-data write:admin", "audience": AUD,
+      "scope": scopes, "audience": AUD,
       "state": session["state"], "code_challenge": challenge,
       "code_challenge_method": "S256",
    }))
@@ -146,16 +164,25 @@ def home():
          "code_verifier": verifier, "redirect_uri": CB,
       }, timeout=15)
       response.raise_for_status()
-      token = response.json().get("access_token")
+      token_response = response.json()
+      token = token_response.get("access_token")
       if not isinstance(token, str) or not token:
          raise ValueError("Missing access token")
-   except (requests.RequestException, ValueError):
+      refresh_path = None
+      if CAPTURE_REFRESH_TOKEN:
+         refresh_token = token_response.get("refresh_token")
+         if not isinstance(refresh_token, str) or not refresh_token:
+            raise ValueError("Auth0 did not issue a refresh token; check offline access settings")
+         refresh_path = store_refresh_token(refresh_token)
+   except (OSError, requests.RequestException, ValueError):
       session["message"] = "Sign-in failed. Please try again."
       return redirect("/")
    tokens.pop(session.get("sid"), None)
    session.clear()
    session["sid"] = secrets.token_urlsafe(32)
    tokens[session["sid"]] = token
+   if refresh_path:
+      session["message"] = f"Refresh token saved securely to {refresh_path.name}."
    return redirect("/")
 
 

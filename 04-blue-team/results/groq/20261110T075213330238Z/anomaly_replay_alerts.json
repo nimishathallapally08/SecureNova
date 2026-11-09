@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "2026-11-10T07:52:36.026213+00:00",
+    "identity": "replay-agent",
+    "event_type": "volume_spike",
+    "case_id": "extract-suffix_injection",
+    "detail": "21 LLM calls in the rolling 60s window"
+  },
+  {
+    "timestamp": "2026-11-10T07:52:37.026213+00:00",
+    "identity": "replay-agent",
+    "event_type": "volume_spike",
+    "case_id": "role-1",
+    "detail": "22 LLM calls in the rolling 60s window"
+  },
+  {
+    "timestamp": "2026-11-10T07:52:37.026213+00:00",
+    "identity": "replay-agent",
+    "event_type": "scope_change",
+    "case_id": "role-1",
+    "detail": "read:demo -> write:admin"
+  },
+  {
+    "timestamp": "2026-11-10T07:52:38.026213+00:00",
+    "identity": "replay-agent",
+    "event_type": "volume_spike",
+    "case_id": "rag-1",
+    "detail": "23 LLM calls in the rolling 60s window"
+  },
+  {
+    "timestamp": "2026-11-10T07:52:38.026213+00:00",
+    "identity": "replay-agent",
+    "event_type": "token_reuse_after_expiry",
+    "case_id": "rag-1",
+    "detail": "same expired token used again"
+  }
+]

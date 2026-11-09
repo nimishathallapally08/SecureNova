@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": 1794296568.447489,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-rag-1",
+    "expires_at": 1794296868.44749,
+    "case_id": "rag-1",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296569.1874468,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-ordinary-refund-control",
+    "expires_at": 1794296869.1874473,
+    "case_id": "ordinary-refund-control",
+    "event_type": "llm_call"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "timestamp": 1794296391.6108747,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-indirect-1",
+    "expires_at": 1794296691.6108754,
+    "case_id": "indirect-1",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296392.6456304,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-indirect-2",
+    "expires_at": 1794296692.6456313,
+    "case_id": "indirect-2",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296393.6066825,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-indirect-3",
+    "expires_at": 1794296693.6066833,
+    "case_id": "indirect-3",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296394.3280494,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-ordinary-refund-control",
+    "expires_at": 1794296694.32805,
+    "case_id": "ordinary-refund-control",
+    "event_type": "llm_call"
+  }
+]

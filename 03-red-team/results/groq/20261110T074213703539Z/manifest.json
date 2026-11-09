@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "backend": "groq",
+  "simulation": false,
+  "attack": "attack3",
+  "cases": 6,
+  "inference_calls": 7
+}

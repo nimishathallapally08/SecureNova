@@ -1,0 +1,65 @@
+[
+  {
+    "timestamp": 1794296533.7051532,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-extract-repeat_back",
+    "expires_at": 1794296833.705154,
+    "case_id": "extract-repeat_back",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296534.278699,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-extract-roleplay_override",
+    "expires_at": 1794296834.2787,
+    "case_id": "extract-roleplay_override",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296534.4918585,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-extract-translation_trick",
+    "expires_at": 1794296834.491859,
+    "case_id": "extract-translation_trick",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296535.4690628,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-extract-ignore_prior",
+    "expires_at": 1794296835.4690638,
+    "case_id": "extract-ignore_prior",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296535.7911265,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-extract-suffix_injection",
+    "expires_at": 1794296835.791127,
+    "case_id": "extract-suffix_injection",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296536.3390925,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-role-1",
+    "expires_at": 1794296836.3390932,
+    "case_id": "role-1",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296536.9571006,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-ordinary-refund-control",
+    "expires_at": 1794296836.957101,
+    "case_id": "ordinary-refund-control",
+    "event_type": "llm_call"
+  }
+]

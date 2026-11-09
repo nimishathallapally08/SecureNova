@@ -1,3 +1,8 @@
 .env
 /venv
 __pycache__/
+.venv/
+*.pem
+/02-iam-design/.refresh_token
+04-blue-team/logs/auth0*.json
+04-blue-team/results/auth0*.json

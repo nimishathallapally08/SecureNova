@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": 1794296485.7025216,
+    "identity": "attacker",
+    "scope": "read:demo",
+    "token_id": "synthetic-spoof-1",
+    "expires_at": 1794296785.7025232,
+    "case_id": "spoof-1",
+    "event_type": "llm_call"
+  },
+  {
+    "timestamp": 1794296486.4896472,
+    "identity": "user",
+    "scope": "read:demo",
+    "token_id": "synthetic-ordinary-refund-control",
+    "expires_at": 1794296786.4896479,
+    "case_id": "ordinary-refund-control",
+    "event_type": "llm_call"
+  }
+]

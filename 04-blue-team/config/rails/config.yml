@@ -1,0 +1,9 @@
+colang_version: "1.0"
+models: []
+rails:
+  input:
+    flows:
+      - check attack input
+  output:
+    flows:
+      - redact jwt output

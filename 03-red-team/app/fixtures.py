@@ -11,6 +11,7 @@ def segment(value: dict[str, str]) -> str:
     ).decode().rstrip("=")
 
 
+# This token is deliberately synthetic and unsigned; it is lab data, never a credential.
 FAKE_JWT = ".".join([
     segment({"alg": "HS256", "typ": "JWT"}),
     segment({"sub": "synthetic-lab-only", "scope": "read:demo"}),

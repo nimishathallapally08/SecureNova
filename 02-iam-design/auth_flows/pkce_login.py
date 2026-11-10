@@ -128,6 +128,8 @@ def prevent_caching(response):
 @app.get("/login")
 def login():
    verifier = secrets.token_urlsafe(40)
+   # Only the challenge travels to Auth0; the verifier stays in the local
+   # session for code exchange.
    challenge = base64.urlsafe_b64encode(
       hashlib.sha256(verifier.encode()).digest()
    ).rstrip(b"=").decode()
@@ -150,6 +152,8 @@ def home():
       return home_page(session.pop("message", None))
    expected_state = session.pop("state", None)
    verifier = session.pop("verifier", None)
+   # Consume state/verifier once and compare in constant time to bind the
+   # callback to this login.
    if not expected_state or not secrets.compare_digest(
       request.args.get("state", ""), expected_state
    ) or not verifier:
@@ -180,6 +184,8 @@ def home():
    tokens.pop(session.get("sid"), None)
    session.clear()
    session["sid"] = secrets.token_urlsafe(32)
+   # Access tokens remain process-local; restarting the demo intentionally
+   # clears all local sessions.
    tokens[session["sid"]] = token
    if refresh_path:
       session["message"] = f"Refresh token saved securely to {refresh_path.name}."

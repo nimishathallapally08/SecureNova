@@ -112,6 +112,8 @@ class Application:
         identity_error = None
         if self.hardened:
             try:
+                # Authenticate the envelope before any model input or requested
+                # action is processed.
                 self.worker_receiver.verify(envelope)
             except IdentityError as exc:
                 identity_error = str(exc)
@@ -123,6 +125,8 @@ class Application:
             if gate["input_status"] == "BLOCKED":
                 result.controls.append(f"nemo_input: {gate['reason']}")
                 if case.family == "rag_poisoning":
+                    # Filter chunks individually so benign context can still
+                    # answer the question.
                     safe_chunks = []
                     for chunk in case.document.splitlines():
                         if self.rails.filter(chunk)["input_status"] == "PASS":

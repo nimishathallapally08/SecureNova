@@ -1,87 +1,85 @@
-# 02 — IAM Design (Auth0 Implementation)
-Auth0-backed identity layer for the SecureNova AI platform: a Regular Web
-Application for the chat service, a Machine-to-Machine application for the
-AI agent, custom scopes, MFA, attack protection, short-lived credential
-rotation, and a post-login Action adding a custom agent identity claim.
-## Structure
-- `backend/app.py` — Flask API validating RS256 JWTs against Auth0's JWKS,
- enforcing scope-based access on `/chat` (read:ai-data) and `/admin`
- (write:admin).
-- `auth_flows/pkce_login.py` — Authorization Code + PKCE login flow for a
- human user, used to prove a user-level token is rejected (403) on the
- admin endpoint.
-- `auth_flows/rotation_demo.py` — obtains a 60-second M2M token, calls
- `/chat` successfully, then replays the expired token to confirm a 401.
-- `actions/add-agent-id-claim.js` — Auth0 post-login Action source that adds
- a custom `agent_id` claim to the ID and access tokens.
-- `env/.env.example` — template for required environment variables. Copy to
- `.env` and fill in real values locally; `.env` is gitignored.
-- `logs/rotation.log` — timestamped terminal evidence of the rotation test.
-- `screenshots/` — evidence captures used in `Project2.pdf`.
-## Setup
-1. `pip install -r requirements.txt` (flask, pyjwt[crypto], requests,
-  python-dotenv)
-2. Copy `env/.env.example` to `env/.env` and fill in your Auth0 tenant
-  domain, API audience, and both applications' client ID/secret.
-3. Run `python backend/app.py` in one terminal.
-4. Run `python auth-flows/pkce_login.py` in a second terminal to log in as
-  a test user and exercise the API.
-5. Run `python auth-flows/rotation_demo.py` to test M2M token rotation.
-## Key config
-- API: `SecureNova API` (`https://api.securenova.ai`), scopes
- `read:ai-data` and `write:admin`, RBAC enabled.
-- Users: `user1@test.com` (role `ai-user`), `admin1@test.com`
- (role `ai-admin`).
-- Token TTL: 60s (Project 2 rotation test), later raised to 300s
- (Project 4 hardening).
+# Project 2: IAM Design
 
-## Two-Application SSO Demo
+An Auth0-backed identity layer for SecureNova. The project demonstrates a
+human-user login flow, machine-to-machine access, scoped API authorization,
+and token rotation. Its consolidated report is [Project2.pdf](./Project2.pdf).
 
-The forwarded port-3001 URL needs a running server. The current login script
-supports multiple instances using `PORT`, `APP_NAME`, and `CALLBACK_URL`.
-From this directory, leave the first app running and start the second in
-another terminal:
+## Components
+
+- `backend/app.py` — Flask API that validates RS256 access tokens against
+  Auth0's JWKS, checks issuer and audience, and enforces `read:ai-data` on
+  `POST /chat` and `write:admin` on `GET /admin`.
+- `auth_flows/pkce_login.py` — interactive Authorization Code + PKCE login
+  client. It exercises both API endpoints and can optionally capture a
+  refresh token for the Project 4 rotation probe.
+- `auth_flows/rotation_demo.py` — obtains a short-lived M2M access token,
+  calls `/chat`, waits for expiry, and confirms that replay is rejected.
+- `actions/add-agent-id-claim.js` — Auth0 post-login Action that adds a
+  namespaced `agent_id` claim to ID and access tokens.
+- `.env.example` — local configuration template. Copy it to `.env` in this
+  directory and fill in credentials from a test tenant. `.env` is ignored by
+  Git.
+- `logs/rotation.log` and `links/screenshots/` — demonstration evidence.
+
+## Local setup
+
+Use Python 3.10 or later. From this directory, install the runtime
+dependencies and configure the Auth0 values:
 
 ```bash
-PORT=3001 APP_NAME="SecureNova Reports" CALLBACK_URL="https://ubiquitous-spork-w99jrv4xq45f9j4q-3001.app.github.dev/" python pkce_login.py
+python -m venv .venv
+.venv/bin/pip install flask 'pyjwt[crypto]' requests python-dotenv
+cp .env.example .env
 ```
 
-This command reuses the first app's Auth0 client configuration. To demonstrate
-SSO between two distinct Auth0 applications, create a second **Regular Web
-Application** in the **same Auth0 tenant**. Put its configuration in a separate,
-untracked environment file outside the repository, such as
-`~/.config/securenova-reports.env`, containing `AUTH0_DOMAIN`, `API_AUDIENCE`,
-`CLIENT_ID`, and `CLIENT_SECRET`. Use the second application's client ID and
-secret, not the first application's or the M2M application's credentials.
-Then start it with:
+Set `AUTH0_DOMAIN`, `API_AUDIENCE`, `CLIENT_ID`, `CLIENT_SECRET`, `M2M_ID`,
+and `M2M_SECRET` in `.env`. Keep real credentials out of source control and
+screenshots.
+
+Start the API and login client in separate terminals, both from this directory:
 
 ```bash
-AUTH_ENV_FILE="$HOME/.config/securenova-reports.env" PORT=3001 APP_NAME="SecureNova Reports" CALLBACK_URL="https://ubiquitous-spork-w99jrv4xq45f9j4q-3001.app.github.dev/" python pkce_login.py
+.venv/bin/python backend/app.py
+.venv/bin/python auth_flows/pkce_login.py
 ```
 
-Variables already exported in the shell take precedence over the environment
-file. Protect that file and never commit or share its client secret.
+For the M2M expiry/replay demonstration, start the API and run:
 
-In the second Auth0 application's settings, add the following exact URL to
-both **Allowed Callback URLs** and **Allowed Logout URLs**:
-
-```text
-https://ubiquitous-spork-w99jrv4xq45f9j4q-3001.app.github.dev/
+```bash
+.venv/bin/python auth_flows/rotation_demo.py
 ```
 
-If reusing the first Auth0 client, add this URL to that client's allowlists
-alongside its port-3000 URL instead. In VS Code's **Ports** panel, forward port
-3001 and keep it private.
+The token's expiration wait is intentional. The API is a local demonstration,
+not a production service.
 
-To demonstrate SSO:
+## Auth0 design
 
-1. Sign in to the port-3000 app.
-2. In the same browser profile, open the port-3001 app and select **Sign in**.
-3. Auth0 should reuse its existing session without asking for credentials
-  again, then return to the second app. Consent or MFA may still be required
-  by tenant policy.
+- API audience: `https://api.securenova.ai`
+- Scopes: `read:ai-data` and `write:admin`
+- Demo user and admin roles are assigned in Auth0; the API makes authorization
+  decisions from the validated token scopes.
+- The rotation probe in Project 4 sets access-token lifetime to 300 seconds
+  and refresh-token rotation. The original Project 2 replay demonstration
+  uses a short-lived M2M access token.
 
-Each app has its own local session. Opening the second home page alone does
-not establish a session; selecting **Sign in** starts the Auth0 redirect.
-Do not sign out between these steps, because sign-out ends the Auth0 SSO
-session. It does not automatically clear the other app's existing local session.
+## Optional two-application SSO demonstration
+
+The login client accepts `PORT`, `APP_NAME`, and `CALLBACK_URL` so two
+instances can run simultaneously. Forward port 3001 privately in VS Code and
+add its exact callback and logout URLs to the Auth0 application's allowlists.
+For distinct applications, create a second Regular Web Application in the
+same Auth0 tenant and supply its credentials through a separate, untracked
+environment file:
+
+```bash
+AUTH_ENV_FILE="$HOME/.config/securenova-reports.env" \
+PORT=3001 APP_NAME="SecureNova Reports" \
+CALLBACK_URL="https://<your-forwarded-host>-3001.app.github.dev/" \
+.venv/bin/python auth_flows/pkce_login.py
+```
+
+That file must define `AUTH0_DOMAIN`, `API_AUDIENCE`, `CLIENT_ID`, and
+`CLIENT_SECRET`. Exported shell variables take precedence. Sign in to the
+first app, then select **Sign in** in the second app using the same browser
+profile. Auth0 may still request consent or MFA. Each application has a
+separate local session; do not sign out between SSO steps.

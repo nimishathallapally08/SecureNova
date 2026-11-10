@@ -77,6 +77,7 @@ class Application:
         outcome.requested_tools = reply.tool_calls
         for tool in reply.tool_calls:
             name, arguments = tool["name"], tool["arguments"]
+            # The vulnerable baseline still confines requested tools to an in-memory lab target.
             outcome.chain.append(f"model requested {name}")
             if name not in ("issue_refund", "delete_account"):
                 outcome.controls.append("tool_allowlist: undeclared tool rejected")

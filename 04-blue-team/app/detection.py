@@ -49,6 +49,8 @@ class AnomalyDetector:
             raise ValueError(f"Unknown request event type: {event['event_type']}")
         if event["event_type"] == "llm_call":
             times = self.calls[identity]
+            # Keep only calls from the rolling minute before enforcing the
+            # 20-call threshold.
             while times and now - times[0] >= 60:
                 times.popleft()
             times.append(now)

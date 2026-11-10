@@ -30,6 +30,7 @@ if resp.status_code != 200:
 
 wait_seconds = int(r["expires_in"]) + 5
 print(f"[{ts()}] Waiting {wait_seconds}s for token to expire...", flush=True)
+# Replay the same bearer token only after its issuer-reported lifetime has elapsed.
 time.sleep(wait_seconds)
 resp = requests.post("http://localhost:5000/chat", headers=h)
 print_response("REPLAY /chat", resp)

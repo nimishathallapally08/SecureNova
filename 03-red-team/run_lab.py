@@ -66,6 +66,7 @@ def main(argv: list[str] | None = None, default_attack: str = "all") -> None:
         case for case in CASES if case.family in families
     )
     has_indirect_cases = any(case.family == "indirect_injection" for case in cases)
+    # Keep the deliberately vulnerable prompt scoped to this synthetic-token demo.
     vulnerable_indirect_demo = args.backend == "groq" and has_indirect_cases
     print(
         "SCRIPTED SIMULATION: not live-model evidence."

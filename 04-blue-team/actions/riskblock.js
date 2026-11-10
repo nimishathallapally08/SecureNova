@@ -4,6 +4,7 @@ exports.onExecutePostLogin = async (event, api) => {
   const highRisk = metadata.securenova_risk === "high";
   const elevatedScore = typeof riskScore === "number" && riskScore >= 80;
 
+  // Deny the login before token issuance when trusted app metadata flags risk.
   if (highRisk || elevatedScore) {
     api.access.deny("Login blocked by the SecureNova risk policy.");
   }

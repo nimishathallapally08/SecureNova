@@ -20,6 +20,8 @@ def require_scope(scope):
                 return jsonify(error="missing token"), 401
 
             try:
+                # Resolve the signing key and verify issuer, audience, and signature
+                # before trusting claims.
                 key = jwks.get_signing_key_from_jwt(token).key
                 claims = jwt.decode(token,key,algorithms=["RS256"],audience=AUD,issuer=f"https://{DOMAIN}/")
             
@@ -28,6 +30,8 @@ def require_scope(scope):
             except (jwt.InvalidTokenError, PyJWKClientError) as e:
                 return jsonify(error=f"invalid token: {e}"), 401
             granted = claims.get("scope","").split()
+            # A valid token is not sufficient; each route also requires its
+            # own delegated scope.
             if scope not in granted:
                 return jsonify(error="insufficient scope", required=scope), 403
             request.claims = claims

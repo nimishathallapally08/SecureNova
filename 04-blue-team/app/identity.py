@@ -27,6 +27,8 @@ class Envelope:
     signature: str = ""
 
     def signing_bytes(self) -> bytes:
+        # Canonical serialization ensures sender and receiver sign the same
+        # complete envelope.
         fields = asdict(self)
         del fields["signature"]
         return json.dumps(fields, sort_keys=True, separators=(",", ":"),
@@ -77,5 +79,6 @@ class Receiver:
             raise IdentityError("message lifetime exceeds 300 seconds")
         if envelope.nonce in self.seen:
             raise IdentityError("message replay rejected")
+        # Mark the nonce only after all checks pass, so invalid messages cannot consume it.
         self.seen.add(envelope.nonce)
         return envelope.message

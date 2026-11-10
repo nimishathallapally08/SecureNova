@@ -92,6 +92,8 @@ class GroqModel:
         if tools:
             payload.update(tools=TOOLS, tool_choice="auto")
         self.calls += 1
+        # Live inference is optional; advertised tools still describe local
+        # synthetic actions.
         response = requests.post(
             "https://api.groq.com/openai/v1/chat/completions",
             headers={"Authorization": f"Bearer {self.key}"},

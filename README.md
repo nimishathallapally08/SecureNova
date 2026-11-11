@@ -10,9 +10,9 @@ red-team exercises, defensive controls, and policy/compliance documentation.
 |---|---|---|
 | 01 — Threat Model | Identity inventory, STRIDE analysis, attack trees, risk register, and MITRE ATLAS mapping | [Project 1 README](./01-threat-model/README.md) · [Project report](./01-threat-model/Project1.pdf) |
 | 02 — IAM Design | Auth0 identity, scoped API access, PKCE login, and token rotation | [Project 2 README](./02-iam-design/README.md) · [Project report](./02-iam-design/Project2.pdf) |
-| 03 — Red Team | Synthetic attack cases and vulnerable-baseline evidence | [Project 3 README](./03-red-team/README.md) |
-| 04 — Blue Team | Guardrails, signed agent identity, detection, and before/after comparison | [Project 4 README](./04-blue-team/README.md) |
-| 05 — Policy | AI identity security policy and compliance mapping | [Project 5 README](./05-policy/README.md) |
+| 03 — Red Team | Synthetic attack cases and vulnerable-baseline evidence | [Project 3 README](./03-red-team/README.md) · [Project report](./03-red-team/Project3.pdf) |
+| 04 — Blue Team | Guardrails, signed agent identity, detection, and before/after comparison | [Project 4 README](./04-blue-team/README.md) · [Project report](./04-blue-team/Project4.pdf) |
+| 05 — Policy | AI identity security policy and compliance mapping | [Project 5 README](./05-policy/README.md) · [Project report](./05-policy/Project5.pdf) |
 
 The projects are arranged in a typical assessment sequence: use Project 1 to
 identify threats, Project 2 to model identity controls, Project 3 to exercise

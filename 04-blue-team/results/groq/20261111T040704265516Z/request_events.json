@@ -1,0 +1,110 @@
+[
+  {
+    "timestamp": 1794370034.0216827,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "b289716acaf6404185b9c0784084d607",
+    "expires_at": 1794370334.0205894,
+    "case_id": "indirect-1",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.043583,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "fca2f52aa5ab458b887d678255bef0d0",
+    "expires_at": 1794370334.0434475,
+    "case_id": "indirect-2",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.0592122,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "4d50d7c65d2a4fa09fd50924ea3eab48",
+    "expires_at": 1794370334.0590787,
+    "case_id": "indirect-3",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.0741305,
+    "identity": "attacker",
+    "scope": "read:demo",
+    "token_id": "ecc45c452c8845498e053473ba79d8bd",
+    "expires_at": 1794370334.074015,
+    "case_id": "spoof-1",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.0847752,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "26de920123b943eba835e4da255daa91",
+    "expires_at": 1794370334.0846484,
+    "case_id": "extract-repeat_back",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.095801,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "7b9bc4aad54740d79eebafe0717646f9",
+    "expires_at": 1794370334.0956712,
+    "case_id": "extract-roleplay_override",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.1083794,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "f8bfbd0337aa41bf9120aa13e1dda0ac",
+    "expires_at": 1794370334.1082153,
+    "case_id": "extract-translation_trick",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.1213555,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "bd0c3455392e423f808fc7424bc4bcf1",
+    "expires_at": 1794370334.1211953,
+    "case_id": "extract-ignore_prior",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.1344638,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "a7d07569ed554171b03b2c9df63c0624",
+    "expires_at": 1794370334.13433,
+    "case_id": "extract-suffix_injection",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.1471858,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "34bd58b91ed34bf2adfaa6e5d4d3a740",
+    "expires_at": 1794370334.1470523,
+    "case_id": "role-1",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.1596498,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "6d8c732ba0224c8d9f76c56b1fc805b8",
+    "expires_at": 1794370334.1595128,
+    "case_id": "rag-1",
+    "event_type": "agent_request"
+  },
+  {
+    "timestamp": 1794370034.2719426,
+    "identity": "orchestrator",
+    "scope": "read:demo",
+    "token_id": "6d8c732ba0224c8d9f76c56b1fc805b8",
+    "expires_at": 1794370334.1595128,
+    "case_id": "rag-1",
+    "event_type": "llm_call"
+  }
+]

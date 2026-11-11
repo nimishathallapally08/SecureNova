@@ -1,0 +1,19 @@
+[
+  {
+    "event_type": "signature_verified",
+    "identity": "orchestrator",
+    "timestamp": "2026-11-11T04:07:14.957638+00:00"
+  },
+  {
+    "event_type": "tampered_message_rejected",
+    "identity": "orchestrator",
+    "timestamp": "2026-11-11T04:07:14.957806+00:00",
+    "error": "signature invalid: message was tampered"
+  },
+  {
+    "event_type": "replayed_message_rejected",
+    "identity": "orchestrator",
+    "timestamp": "2026-11-11T04:07:14.957968+00:00",
+    "error": "message replay rejected"
+  }
+]

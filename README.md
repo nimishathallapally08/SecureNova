@@ -31,7 +31,7 @@ First, generate the full Project 3 baseline:
 cd 03-red-team
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python run_lab.py --backend simulated
+.venv/bin/python run_lab.py --backend groq
 ```
 
 The command prints the generated run directory. Use its `results.json` as the
@@ -41,7 +41,7 @@ input to Project 4:
 cd ../04-blue-team
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python run_lab.py compare --backend simulated \
+.venv/bin/python run_lab.py compare --backend groq \
   --baseline ../03-red-team/results/simulated/<run-id>/results.json
 ```
 

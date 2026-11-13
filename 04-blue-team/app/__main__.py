@@ -83,7 +83,7 @@ def identity_checks() -> list[dict]:
 
 
 def run(backend: str, phase: str, run_id: str | None = None,
-        baseline_path: Path | None = None) -> Path:
+        baseline_path: Path | None = None, show_prompt: bool = False) -> Path:
     imported = load_baseline(baseline_path) if baseline_path is not None else None
     if imported is not None and imported[2] != backend:
         raise ValueError("Select the same --backend as the imported baseline")
@@ -132,7 +132,7 @@ def run(backend: str, phase: str, run_id: str | None = None,
         write_json(red / "results.json", [asdict(item) for item in before])
     else:
         for case in cases:
-            before.append(baseline.run(case))
+            before.append(baseline.run(case, show_prompt=show_prompt))
             write_json(red / "results.json", [asdict(item) for item in before])
             print(f"baseline {case.id}: {'SUCCESS' if before[-1].attack_success else 'FAILED'}")
         control = baseline.run(Case(
@@ -152,7 +152,7 @@ def run(backend: str, phase: str, run_id: str | None = None,
     hardened = Application(True, model)
     after: list[Outcome] = []
     for case in cases:
-        result = hardened.run(case)
+        result = hardened.run(case, show_prompt=show_prompt)
         if indirect_demo and case.family == "indirect_injection":
             result.success_definition = DEMO_SUCCESS_DEFINITION
             result.attack_success = FAKE_JWT in result.released_response
@@ -217,6 +217,8 @@ def main() -> None:
         command = commands.add_parser(name)
         command.add_argument("--backend", choices=("simulated", "groq"), default="simulated")
         command.add_argument("--run-id")
+        command.add_argument("--show_prompt", action="store_true",
+                             help="print each case's document and user prompt")
         if name == "compare":
             command.add_argument("--baseline", type=Path,
                                  help="Project 3 exported results.json (data only; no code import)")
@@ -232,7 +234,8 @@ def main() -> None:
         print(json.dumps(alerts, indent=2))
         print(f"{len(alerts)} alerts saved to {args.output}")
         return
-    run(args.backend, args.command, args.run_id, getattr(args, "baseline", None))
+    run(args.backend, args.command, args.run_id, getattr(args, "baseline", None),
+        args.show_prompt)
 
 
 if __name__ == "__main__":

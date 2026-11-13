@@ -99,7 +99,10 @@ class Application:
         result.executed_actions.append(name)
         result.chain.append(f"mock executor performed {name} on in-memory lab-user")
 
-    def run(self, case: Case) -> Outcome:
+    def run(self, case: Case, show_prompt: bool = False) -> Outcome:
+        if show_prompt:
+            print(f"\nPROMPT [{case.id}] (document + user input):\n{case.full_input}",
+                  flush=True)
         result = Outcome(
             case.id, case.family, "hardened" if self.hardened else "baseline",
             self.model.name, case.prompt, case.document,

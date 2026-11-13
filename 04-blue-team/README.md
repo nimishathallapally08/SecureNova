@@ -23,14 +23,17 @@ Replay the attack fixtures through NeMo input/output rails:
 .venv/bin/python -m app.evidence detection
 
 .venv/bin/python run_lab.py compare --backend simulated \
-  --baseline ../03-red-team/results/simulated/<run-id>/results.json
+  --baseline ../03-red-team/results/simulated/<run-id>/results.json \
+  --show_prompt
 ```
 
 The evidence commands write unique records below `results/`. A comparison
 requires the complete 11-case Project 3 export, produced by
 `03-red-team/run_lab.py --backend simulated`; a single-attack export is not a
-valid comparison baseline. To generate a fresh baseline and hardened
-comparison without importing Project 3 evidence, run:
+valid comparison baseline. Add `--show_prompt` to print each test case's
+document and user-input payload as it is evaluated. The prompt and document
+are also saved in each case record in `results.json`. To generate a fresh
+baseline and hardened comparison without importing Project 3 evidence, run:
 
 ```bash
 .venv/bin/python run_lab.py compare --backend simulated
